@@ -5,14 +5,14 @@ namespace EmptyApp
 {
     public static class ReinRausMiddlewareExtensions
     {
-        public static IServiceCollection AddReinRaus(this IServiceCollection collection, Action<ReinRausOptions> setupAction)
+        public static IServiceCollection AddReinRaus(this IServiceCollection services, Action<ReinRausOptions> setupAction)
         {
             if (setupAction != null)
             {
-                collection.Configure(setupAction);
+                services.Configure(setupAction);
             }
 
-            return collection;
+            return services;
         }
     }
 }

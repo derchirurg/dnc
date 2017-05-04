@@ -37,6 +37,10 @@ namespace EmptyApp
             // Aus einer Konfigurationsdatei laden.
             services.Configure<ReinRausOptions>(Configuration.GetSection("ReinRaus"));
 
+            // WaitService hinzufügen.
+            // Innerhalb eines Scopes die selbe Instanz (bspw. innerhalb eines Requests).
+            services.AddScoped<WaitService>();
+
             // DI manuell hinzufügen.
             services.AddReinRaus((options) =>
             {
