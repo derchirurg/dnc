@@ -16,6 +16,14 @@ namespace EmptyApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Das wird für die DI benötigt.
+            services.AddOptions();
+
+            // DI ReinRaus hinzufügen.
+            services.AddReinRaus((options) =>
+            {
+                options.Number = "Eins";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,7 +39,6 @@ namespace EmptyApp
                 await next();
                 await context.Response.WriteAsync("Zwei raus<br />");
             });
-            
 
             app.Run(async (context) =>
             {
