@@ -31,6 +31,7 @@ namespace EmptyApp
                 await next();
                 await context.Response.WriteAsync("Zwei raus<br />");
             });
+            
 
             app.Run(async (context) =>
             {
